@@ -61,3 +61,5 @@ def main() :
     
 #enquanto a funçao MAIN() for verdadeira ela será  executada indefinidamente     
 while main(): True;
+
+fim
