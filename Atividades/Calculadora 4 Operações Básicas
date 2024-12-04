@@ -1,0 +1,63 @@
+# ATIVIDADE (CACULADORA - OPERAÇÕES BÁSICAS) 
+
+def Calculadora(num1, num2, operacao):
+  if operacao =="+" :
+    return num1 + num2;
+  elif operacao == "-" :
+    return num1 - num2;
+  elif operacao == "*" :
+    return num1 * num2;
+  elif operacao == "/" :
+    #verificação se a divisão não é por zero.
+    if num2 != 0 :
+      return num1 / num2;
+    else:
+      return "Operaçao matematica inválida: não é possível dividir por zero.";
+  else:
+    return "Operação matemática inválida."
+
+def Menu() :
+  print("Bem vindo ao aplicativo Calculadora");
+  while True:
+    print("Escolha a opção de calculo a ser executada entre as listadas abaixo.");
+    print("[ + ] - Somar");
+    print("[ - ] - Subtrair ");
+    print("[ * ] - Multiplicar");
+    print("[ / ] - Dividir");
+    print("[  Q ] - Sair");
+    operacao = input("Qual sua opção? ");
+
+    if (operacao != "+") and (operacao != "-") and (operacao != "*") and (operacao != "/") and (operacao.upper() != "Q") :
+      print("Por favor informe uma opção válida.");
+    else :
+      break;
+  
+  return operacao;
+
+def main() :
+  operacaoCalc = Menu();
+  #caso o usuário escolha a opçao Q no menu, o programa será encerrado.
+  if (operacaoCalc.upper() == "Q") :
+    return False;
+    quit();
+  else :  
+    while True :
+      try :
+        num01 = float(input("Informe o primeiro número: "));
+        break;
+      except :
+        print("Por favor informe um número válido.");
+
+    while True :  
+      try :
+        num02 = float(input("Informe o segundo número: "));
+        break;
+      except :
+        print("Por favor informe um número válido.");
+      
+    calculadora = Calculadora(num01, num02, operacaoCalc);
+    print(num01, operacaoCalc, num02, " = ", calculadora, "\n","\n","\n" );
+  return True;
+    
+#enquanto a funçao MAIN() for verdadeira ela será  executada indefinidamente     
+while main(): True;
